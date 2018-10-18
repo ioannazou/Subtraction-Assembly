@@ -1,0 +1,40 @@
+#Ioanna Zournatzi 3212017052
+#Dourdoumas Marios 3212017045
+
+.data
+
+msg1: .asciiz "Insert the first number: "
+msg2: .asciiz "Insert the second number: "
+result: .asciiz "The result is: "
+
+.text
+main:
+
+li $v0,4
+la $a0,msg1 #emfanise to msg1
+syscall
+
+li $v0,5 
+syscall 
+move $t1,$v0
+
+li $v0,4
+la $a0,msg2 #emfanise to msg2
+syscall
+
+li $v0,5
+syscall
+move $t2,$v0
+
+sub $t2,$t1,$t2
+
+li $v0,4
+la $a0,result #emfanise to apotelesma tis afairesis
+syscall
+
+li $v0,1
+move $a0,$t2
+syscall
+
+li $v0,10
+syscall
